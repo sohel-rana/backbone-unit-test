@@ -9,8 +9,7 @@ describe('ToDo Model', function () {
 
   describe('Initialization', function () {
     beforeEach(function () {
-      console.log('running test cases');
-      this.todo = new todoApp.toDo();
+      this.todo = new todoApp.ToDo();
     });
 
     it('should set the default complete status to false', function () {
@@ -24,7 +23,7 @@ describe('ToDo Model', function () {
 
   describe('Persistence', function () {
     beforeEach(function () {
-      this.todo = new todoApp.toDo();
+      this.todo = new todoApp.ToDo();
       this.todo.saveStub = sinon.stub(this.todo, 'save');
     });
     afterEach(function () {
@@ -40,5 +39,4 @@ describe('ToDo Model', function () {
     });
 
   });
-
 });

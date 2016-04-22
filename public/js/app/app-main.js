@@ -9,7 +9,7 @@ if(typeof todoApp === 'undefined'){
   todoApp = {};
 }
 
-todoApp.toDo = Backbone.Model.extend({
+todoApp.ToDo = Backbone.Model.extend({
   defaults : {
     title : '',
     complete : false
@@ -21,6 +21,20 @@ todoApp.toDo = Backbone.Model.extend({
       me.save();
     });
   }
+});
 
+todoApp.ToDoListItem = Backbone.View.extend({
+  tagName : 'li',
 
+  initialize: function () {
+
+  },
+  template : _.template("<label>" +
+      "<input type='checkbox' <% if(complete) print('checked')%>>" +
+    "<%=title %>"),
+
+  render : function () {
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  }
 });

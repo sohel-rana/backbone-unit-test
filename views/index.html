@@ -3,4 +3,12 @@
   <h1>
     List of Todos
   </h1>
+  <script>
+    $(function () {
+      var todos = new todoApp.ToDos();
+      todos.fetch();
+      var list = new todoApp.TodosList({collection: todos});
+      $("body").append(list.el);
+    })
+  </script>
 {% endblock %}
